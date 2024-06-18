@@ -4,6 +4,12 @@ import { NavLink } from 'react-router-dom';
 import { Button } from '../../components/MyButton/Button';
 
 const Regist = () => {
+
+  const sendLocal = () => {
+    localStorage.setItem('Auth', 'user');
+    window.dispatchEvent(new Event('storage'));
+  }
+
   return (
     <div className={styles.cor}>
     <div className={styles.loginBox}>
@@ -21,7 +27,7 @@ const Regist = () => {
           <label>Password</label>
         </div>
         <center >
-          <NavLink to={'/'}><Button>
+          <NavLink to={'/'}><Button onClick={sendLocal}>
           Зарегистрироваться
             </Button></NavLink>
            <div className={styles.navl}>

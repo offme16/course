@@ -4,12 +4,18 @@ import { NavLink } from 'react-router-dom';
 import { Button } from '../../components/MyButton/Button';
 
 const AuthC = () => {
+
+const sendLocal = () => {
+  localStorage.setItem('Auth', 'user');
+  window.dispatchEvent(new Event('storage'));
+}
+
   return (
     <div className={styles.cor}>
     <div className={styles.loginBox}>
       <form>
         <div className={styles.userBox}>
-          <input type="text" name="username" required />
+          <input type="text" name="username" required  />
           <label>Username</label>
         </div>
         <div className={styles.userBox}>
@@ -17,7 +23,7 @@ const AuthC = () => {
           <label>Password</label>
         </div>
         <center >
-          <NavLink to={'/'}><Button>
+          <NavLink to={'/'}><Button onClick={sendLocal}>
             Войти
             </Button></NavLink>
            <div className={styles.navl}>
